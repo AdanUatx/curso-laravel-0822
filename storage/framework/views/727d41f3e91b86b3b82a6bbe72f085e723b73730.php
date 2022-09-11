@@ -1,0 +1,27 @@
+<!-- Modal Confirm Delete -->
+<div class="modal fade" id="modal-delete-<?php echo e($empleado->id); ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form action="<?php echo e(route('empleado.destroy', $empleado->id)); ?>" method="post">
+            @csrf
+            @method('DELETE')
+            <!--<?php echo e(csrf_field()); ?>
+
+            <input name="_method" type="hidden" value="DELETE">-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Desea eliminar al registro <?php echo e($empleado->nombre); ?> ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button class="btn-sm btn-danger" type="submit">Eliminar</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
